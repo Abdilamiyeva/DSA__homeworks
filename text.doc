@@ -1,0 +1,18 @@
+//[5,3,4,1,2]
+
+// merge sortda  bo'lib tashla hukumronlik qil degan algoritm bilan ishleydi 
+// bunda  massivni 1 ta yoki 2 ta elementi qolmagunicha bolib tashlayveradi
+
+
+//  radix =>  bunda 10 ta  yacheykalar ochiladi  shu boyicha joylaydi 
+
+// [1556 , 4,  3556 , 593 , 408, 4386 , 907]
+
+
+//  0 , 1 ,2 ,3 , 4 ,5 ,6 ,7, 8, 9 
+// oxirgi raqam boyicha olamiz yani shu son nechchi bo'lsa shu sondagi yacheykaga joylaymiz 
+// 1556 => oxirgi raqami 6 shu uchun u 6 chi yacheykaga joylashadi 
+// 6 => [1556, 3556 , 4386 ]
+// ...
+// ...
+// ...
