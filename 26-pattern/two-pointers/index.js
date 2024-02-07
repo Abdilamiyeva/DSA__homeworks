@@ -14,25 +14,20 @@ class Node {
     this.next = next;
   }
 }
-
-function removeNthNodeFromEnd(head, n) {
-  const newNode = new Node(0);
-  newNode.next = head;
-  let start = newNode;
-  let end = newNode;
-
-  for (let i = 0; i <= n; i++) {
-    start = start.next;
+function deleteRight(head, n) {
+  let p1 = head;
+  let p2 = head;
+  let count = 0;
+  while (count < n) {
+    p1 = p1.next;
+    count++;
   }
-
-  while (start !== null) {
-    start = start.next;
-    end = end.next;
+  while (p1.next) {
+    p1 = p1.next;
+    p2 = p2.next;
   }
-
-  end.next = end.next.next;
-
-  return newNode.next;
+  p2.next = p2.next.next;
+  return head;
 }
 function Print(list) {
   while (list !== null) {
@@ -45,7 +40,7 @@ const List = new Node(
   new Node(78, new Node(65, new Node(90, new Node(12, new Node(44)))))
 );
 
-const res = removeNthNodeFromEnd(List, 3);
+const res = deleteRight(List, 3);
 Print(res);
 
 // ******************************************* task => 2 **************************************************
@@ -59,7 +54,20 @@ Sort the array in place so that the elements of the same color are adjacent, wit
 Input: 
 colors=[1,0,2,1,2,2]
 Output: 
-colors=[0,1,1,2,2] */
+colors=[0,1,1,2,2,2] */
+
+function sortedColors(colors) {
+  for (let i = 0; i < colors.length; i++) {
+    for (let j = 0; j < colors.length; j++) {
+      if (colors[i] < colors[j]) {
+        [colors[i], colors[j]] = [colors[j], colors[i]];
+      }
+    }
+  }
+  return colors;
+}
+const colors = [1, 0, 2, 1, 2, 2];
+console.log(sortedColors(colors));
 
 // ********************************************** task => 3 ***********************************************
 /* 
@@ -125,8 +133,10 @@ const isPalindromeAfterRemoveElement = () => {
         isPalindrome(str.substring(left + 1, right + 1))
       );
     }
-
     left++;
     right--;
   }
 };
+
+
+
